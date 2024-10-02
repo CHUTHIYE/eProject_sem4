@@ -25,9 +25,9 @@ public class Product {
     private Double price;
 
     private Integer quantity;
-
-    @Column(name = "image_file_name")
-    private String imageFileName;
+//
+//    @Column(name = "image_file_name")
+//    private String imageFileName;
 
 
     @ManyToOne
@@ -38,16 +38,15 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = true)
     private Category category;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ProductDetails> productDetails;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Image> images;
-
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Feedback> feedbacks;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<RentalDate> rentalDates;
 
     public Product(Category category, Set<RentalDate> rentalDates, Set<Feedback> feedbacks, Set<ProductDetails> productDetails, Set<Image> images, Label label, Integer quantity, String duration, Double price, String status, String name, Integer productId,String imageFileName) {
@@ -63,7 +62,7 @@ public class Product {
         this.status = status;
         this.name = name;
         this.productId = productId;
-        this.imageFileName = imageFileName;
+//        this.imageFileName = imageFileName;
     }
 
 
@@ -171,11 +170,11 @@ public class Product {
         this.rentalDates = rentalDates;
     }
 
-    public String getImageFileName() {
-        return imageFileName;
-    }
-
-    public void setImageFileName(String imageFileName) {
-        this.imageFileName = imageFileName;
-    }
+//    public String getImageFileName() {
+//        return imageFileName;
+//    }
+//
+//    public void setImageFileName(String imageFileName) {
+//        this.imageFileName = imageFileName;
+//    }
 }
