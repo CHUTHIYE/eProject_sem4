@@ -80,11 +80,29 @@ public class ProductService implements IProductService {
     // Update an existing product
     @Override
     public void updateProduct(int productId, ProductDTO productDTO) {
-        Optional<Product> existingProduct = productRepository.findById(productId);
-        if (existingProduct.isPresent()) {
-            Product product = convertToEntity(productDTO);
-            product.setProductId(productId);
-            productRepository.save(product);
+        Optional<Product> existingProductOptional = productRepository.findById(productId);
+
+        if (existingProductOptional.isPresent()) {
+            Product existingProduct = existingProductOptional.get();
+
+
+            existingProduct.setName(productDTO.getName());
+            existingProduct.setStatus(productDTO.getStatus());
+            existingProduct.setDuration(productDTO.getDuration());
+            existingProduct.setPrice(productDTO.getPrice());
+            existingProduct.setQuantity(productDTO.getQuantity());
+
+
+            Label label = new Label();
+            label.setLabelId(productDTO.getLabelId());
+            existingProduct.setLabel(label);
+
+            Category category = new Category();
+            category.setCategoryId(productDTO.getCategoryId());
+            existingProduct.setCategory(category);
+
+            productRepository.save(existingProduct);
+
         } else {
             throw new RuntimeException("Product not found with id: " + productId);
         }
