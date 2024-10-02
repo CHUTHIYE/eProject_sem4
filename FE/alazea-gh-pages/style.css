@@ -710,6 +710,8 @@ img {
       z-index: 10; }
     .single-product-area .product-img .product-tag.sale-tag a {
       background-color: #e61d47; }
+      .single-product-area .product-img .product-tag.rental-tag a {
+        background-color: #00fd50; }
     .single-product-area .product-img .product-meta {
       position: absolute;
       bottom: 30px;

@@ -857,6 +857,11 @@ img {
                     background-color: #e61d47;
                 }
             }
+            &.rental-tag {
+                a {
+                    background-color: #00ff4c;
+                }
+            }
         }
         .product-meta {
             position: absolute;
@@ -921,7 +926,7 @@ img {
     }
     &:hover {
         .product-img {
-            box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 30px 0 #00000026;
             .product-meta {
                 visibility: visible;
                 opacity: 1;
