@@ -9,7 +9,7 @@ public interface IProductService {
     void saveProduct(ProductDTO productDTO);
     void updateProduct(int productId, ProductDTO productDTO);
     void deleteProduct(int productId);
-    // Additional methods for sorting
+
     List<ProductDTO> getAllProductsSortedByName();
     List<ProductDTO> getAllProductsSortedByPrice();
 }

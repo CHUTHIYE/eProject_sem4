@@ -12,7 +12,7 @@ public class OrderDetail {
 
     private Integer quantity;
 
-    @Column(precision = 10, scale = 2)
+    @Column
     private Double price;
 
     @ManyToOne

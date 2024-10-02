@@ -1,5 +1,7 @@
 package com.example.project_sem4.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductDTO {
     private Integer productId;
     private String name;
@@ -9,8 +11,8 @@ public class ProductDTO {
     private int quantity;
     private Integer labelId;
     private Integer categoryId;
+    private MultipartFile imageFile;
 
-    // Getters and Setters
     public Integer getProductId() {
         return productId;
     }
@@ -73,5 +75,13 @@ public class ProductDTO {
 
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public MultipartFile getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(MultipartFile imageFile) {
+        this.imageFile = imageFile;
     }
 }

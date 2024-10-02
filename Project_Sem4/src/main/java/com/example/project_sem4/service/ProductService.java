@@ -18,7 +18,7 @@ public class ProductService implements IProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    // Helper method to convert ProductDTO to Product entity
+
     private Product convertToEntity(ProductDTO productDTO) {
         Product product = new Product();
         product.setProductId(productDTO.getProductId());
@@ -40,7 +40,7 @@ public class ProductService implements IProductService {
         return product;
     }
 
-    // Helper method to convert Product entity to ProductDTO
+
     private ProductDTO convertToDTO(Product product) {
         ProductDTO productDTO = new ProductDTO();
         productDTO.setProductId(product.getProductId());
@@ -54,7 +54,7 @@ public class ProductService implements IProductService {
         return productDTO;
     }
 
-    // Get all products
+
     @Override
     public List<ProductDTO> getAllProducts() {
         return productRepository.findAll()
@@ -63,7 +63,7 @@ public class ProductService implements IProductService {
                 .collect(Collectors.toList());
     }
 
-    // Get product by ID
+
     @Override
     public ProductDTO getProductById(int productId) {
         Optional<Product> product = productRepository.findById(productId);

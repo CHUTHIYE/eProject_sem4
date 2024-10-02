@@ -21,10 +21,13 @@ public class Product {
     @Column(length = 20)
     private String duration;
 
-    @Column(precision = 10, scale = 2)
+    @Column
     private Double price;
 
     private Integer quantity;
+
+    @Column(name = "image_file_name")
+    private String imageFileName;
 
 
     @ManyToOne
@@ -47,7 +50,7 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<RentalDate> rentalDates;
 
-    public Product(Category category, Set<RentalDate> rentalDates, Set<Feedback> feedbacks, Set<ProductDetails> productDetails, Set<Image> images, Label label, Integer quantity, String duration, Double price, String status, String name, Integer productId) {
+    public Product(Category category, Set<RentalDate> rentalDates, Set<Feedback> feedbacks, Set<ProductDetails> productDetails, Set<Image> images, Label label, Integer quantity, String duration, Double price, String status, String name, Integer productId,String imageFileName) {
         this.category = category;
         this.rentalDates = rentalDates;
         this.feedbacks = feedbacks;
@@ -60,6 +63,7 @@ public class Product {
         this.status = status;
         this.name = name;
         this.productId = productId;
+        this.imageFileName = imageFileName;
     }
 
 
@@ -167,5 +171,11 @@ public class Product {
         this.rentalDates = rentalDates;
     }
 
+    public String getImageFileName() {
+        return imageFileName;
+    }
 
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
+    }
 }
